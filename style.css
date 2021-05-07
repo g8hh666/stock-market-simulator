@@ -17,7 +17,7 @@ body:hover {
 }
 #game {
 	width: 960px;
-	margin: 0px;
+	margin: 20px auto;
 	height: 640;
 	padding: 20px;
 	background-color: #003300;

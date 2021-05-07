@@ -1,38 +1,40 @@
 
 <head>
 <meta charset="utf-8" />
-<title>Stock Market Simulator</title>
+<title>股市模拟器 - Stock Market Simulator</title>
 <link rel="shortcut icon" href="/boltlogo.png">
 <link rel="stylesheet" type="text/css" href="style.css">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//likexia.gitee.io/game/js/jquery.min.js"></script>
 <script type="text/javascript" src="jscookie.js"></script>
 <script type="text/javascript" src=game/company.js></script>
 <script type="text/javascript" src=game/draw.js></script>
 <script type="text/javascript" src=game/flow.js></script>
 <script type="text/javascript" src=game/info.js></script>
 <script type="text/javascript" src=game/upgrades.js></script>
-<script type="text/javascript" src='https://cdn1.kongregate.com/javascripts/kongregate_api.js'></script>
+<script type="text/javascript" src='kongregate_api2.js'></script>
 <script type="text/javascript">
 // Called when the API is finished loading
 function onLoadCompleted(){
 	// Get a global reference to the kongregate API. This way, pages included in the
 	// iframe can access it by using "parent.kongregate"
-	kongregate = kongregateAPI.getAPI();
-	// Embed the game into the "contentdiv" div, which is defined below. You can also
-	// manually create your own iframe, this function is just for convenience. 
-	// This example also passes along the kongregate user_id and game_auth_token so 
-	// that the page can use them for authentication.
-	var params = "kongregate_user_id=" + kongregate.services.getUserId() + 
-			   "&kongregate_game_auth_token=" + kongregate.services.getGameAuthToken();
-	kongregateAPI.embedFrame("game.html?" + params);
+//	kongregate = kongregateAPI.getAPI();
+//	// Embed the game into the "contentdiv" div, which is defined below. You can also
+//	// manually create your own iframe, this function is just for convenience. 
+//	// This example also passes along the kongregate user_id and game_auth_token so 
+//	// that the page can use them for authentication.
+//	var params = "kongregate_user_id=" + kongregate.services.getUserId() + 
+//			   "&kongregate_game_auth_token=" + kongregate.services.getGameAuthToken();
+//	kongregateAPI.embedFrame("game.html?" + params);
 }
 
 // Begin the process of loading the Kongregate API:
-kongregateAPI.loadAPI(onLoadCompleted);
+//kongregateAPI.loadAPI(onLoadCompleted);
 </script>
 <script> window.onload = main; </script>
 </head>
 <body>
+<script src="chs.js?07071443"></script>
+<script src="//likexia.gitee.io/game/zh/core.js"></script>
 <div id="game">
 	<canvas id="graph" class="graph" width=620 height=300></canvas>
 	<div id="context" class="context"></div>
@@ -45,4 +47,12 @@ kongregateAPI.loadAPI(onLoadCompleted);
 	
 	<br>
 </div>
+<!--客服 开始-->
+<link rel="stylesheet" href="//likexia.gitee.io/game/css/kf.css" type="text/css" media="screen" charset="utf-8">
+<script src="//likexia.gitee.io/game/js/kf.js"></script>
+<!-- 客服 结束 -->
+<!--站长统计-->
+    <div style="display: none">
+        <script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1279902880&web_id=1279902880"></script>
+    </div>
 </body>

@@ -99,10 +99,10 @@ function mainloop() {
 	
 	for (b of buttons) {
 		if (b.x < listPos.left && b.x + b.w > listPos.left && b.y < listPos.top && b.y + b.h > listPos.top) {
-			console.log("hovering");
+//			console.log("hovering");
 			if (!lastmd && mouseDown && typeof(b.click) === "function") {
 				b.click();
-				console.log("clicked");
+//				console.log("clicked");
 			}
 			else {
 				b.hover();
