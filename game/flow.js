@@ -28,7 +28,7 @@ function main() {
 	canvas = document.getElementById("graph");
 	graphctx = canvas.getContext("2d");
 	graphctx.textAlign = "center";
-	$("#list").html("<canvas id='listcanvas' width=600 height=300></canvas>");
+	$("#list").html("<canvas id='listcanvas' width=600 height=600></canvas>");
 	list = document.getElementById("listcanvas");
 	if (typeof(list) !== 'null') {
 		listctx = list.getContext("2d");

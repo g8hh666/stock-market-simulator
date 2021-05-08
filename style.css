@@ -18,7 +18,7 @@ body:hover {
 #game {
 	width: 960px;
 	margin: 20px auto;
-	height: 640;
+	min-height: 640;
 	padding: 20px;
 	background-color: #003300;
 }
@@ -40,7 +40,7 @@ body:hover {
 }
 #list {
 	width: 600;
-	max-height: 300;
+	height: 500;
 	overflow-y: auto;
 }
 #listcanvas {

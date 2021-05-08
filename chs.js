@@ -93,7 +93,7 @@ var cnItems = {
     'Bags with dollar symbol': '有美元符号的包',
     'A huge french company which started of as a web search engine.': '一家大型法国公司，最初只是作为网络搜索引擎。',
     'A huge and very expensive mall somewhere in Europe. Gains money.': '欧洲某处巨大且非常昂贵的购物中心。 赚钱。',
-    'lemonade': '柠檬水摊位',
+    'lemonade': '柠檬水',
     'Whenever you hover an element, info about that will show here.': '每当您将元素悬停时，有关该元素的信息就会显示在此处。',
     'This is history of price of selected comodity. Green line is sell price, red line is buy price. Its speed of change and overall behavior varies from company to company.': '这是选定商品价格的历史记录。 绿线是卖出价格，红线是买入价格。 它的变化速度和整体行为因公司而异。',
     'Reduce interval between ticks by 10%.': '减少tick的间隔10%。',
@@ -194,7 +194,7 @@ var cnPostfix = {
     "\n": "",
     "Start off by buying some Lemonade stalls under Companies tab. They will generate some cash and lemonade, but more importantly, you can sell them for higher price than for which you bought them.": "首先在“公司”标签下购买一些柠檬水摊位。 它们会产生一些现金和柠檬水，但更重要的是，您可以以高于购买价格的价格出售它们。",
     "HEY! OVER HERE! Hello and welcome to Stock Market Simulator. This is status log, various messages and tutorial will show up here. Hover various elements to get help regarding them in the other corner of the screen": "嘿！ 在这里！ 您好，欢迎来到股市模拟器。 这是状态日志，各种消息和教程将在此处显示。 将鼠标悬停在屏幕的另一角以获取有关它们的帮助",
-    "": "",
+    "You cannot buy that": "你不能购买这个",
     "": "",
     "": "",
     "": "",
@@ -207,6 +207,7 @@ var cnPostfix = {
 //需排除的，正则匹配
 var cnExcludeWhole = [
     /^([\d\.]+)$/,
+    /^([\d\.]+)k$/,
 ];
 var cnExcludePostfix = [
 ]
@@ -221,8 +222,21 @@ var cnRegReplace = new Map([
     [/^requires ([\d\.]+) more research points$/, '需要$1个研究点'],
     [/^\>(.+) \- Welcome back! You have been away for (.+) ticks \((.+) seconds$/, '\> $1 \- 欢迎回来！ 您已离开了 $2 tick（$3秒'],
     [/^\>(.+) \- (.+)x \'Lemonade stall\' bought for (.+)$/, '\> $1 \- 以 $3 的价格购买了 $2x \'柠檬水摊位\''],
-    [/^\>(.+) \- (.+)x \'Lemonade stall\' bought for (.+) \((.+) each$/, '\> $1 \- 以 $3 的价格购买了 $2x \'柠檬水摊位\' \(单价为 $4'],
+    [/^\>(.+) \- (.+)x \'Lemonade Co.\' bought for (.+)$/, '\> $1 \- 以 $3 的价格购买了 $2x \'柠檬水公司\''],
+    [/^\>(.+) \- (.+)x \'Bank\' bought for (.+)$/, '\> $1 \- 以 $3 的价格购买了 $2x \'银行\''],
+    [/^\>(.+) \- (.+)x \'Local woodworks\' bought for (.+)$/, '\> $1 \- 以 $3 的价格购买了 $2x \'当地木制品\''],
+    [/^\>(.+) \- (.+)x \'Lemonade stall\' bought for (.+) \((.+) each$/, '\> $1 \- 以 $3 的价格购买了 $2x \'柠檬水公司\' \(单价为 $4'],
+    [/^\>(.+) \- (.+)x \'Oil rigs\' bought for (.+) \((.+) each$/, '\> $1 \- 以 $3 的价格购买了 $2x \'石油钻井平台\' \(单价为 $4'],
+    [/^\>(.+) \- (.+)x \'Lemonade Co.\' bought for (.+) \((.+) each$/, '\> $1 \- 以 $3 的价格购买了 $2x \'柠檬水公司\' \(单价为 $4'],
     [/^\>(.+) \- (.+)x \'Lemonade stall\' sold for (.+) \((.+) each$/, '\> $1 \- 以 $3 的价格出售了 $2x \'柠檬水摊位\' \(单价为 $4'],
+    [/^\>(.+) \- (.+)x \'lemonade\' sold for (.+) \((.+) each$/, '\> $1 \- 以 $3 的价格出售了 $2x \'柠檬水\' \(单价为 $4'],
+    [/^\>(.+) \- (.+)x \'wood\' sold for (.+) \((.+) each$/, '\> $1 \- 以 $3 的价格出售了 $2x \'木头\' \(单价为 $4'],
+    [/^\>(.+) \- (.+)x \'oil\' sold for (.+) \((.+) each$/, '\> $1 \- 以 $3 的价格出售了 $2x \'石油\' \(单价为 $4'],
+    [/^\>(.+) \- (.+)x \'Local woodworks\' sold for (.+)$/, '\> $1 \- 以 $3 的价格出售了 $2x \'当地木制品\''],
+    [/^\>(.+) \- (.+)x \'Lemonade Co.\' sold for (.+)$/, '\> $1 \- 以 $3 的价格出售了 $2x \'柠檬水公司\''],
+    [/^\>(.+) \- (.+)x \'Lemonade stall\' sold for (.+)$/, '\> $1 \- 以 $3 的价格出售了 $2x \'柠檬水摊位\''],
+    [/^\>(.+) \- (.+)x \'Bank\' sold for (.+)$/, '\> $1 \- 以 $3 的价格出售了 $2x \'银行\''],
+    [/^\>(.+) \- (.+)x \'Oil rigs\' sold for (.+)$/, '\> $1 \- 以 $3 的价格出售了 $2x \'石油钻井平台\''],
     [/^Cost: (\d+) RP$/, '成本：$1 皇家点数'],
     [/^Usages: (\d+)\/$/, '用途：$1\/'],
     [/^workers: (\d+)\/$/, '工人：$1\/'],
